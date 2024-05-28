@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-import { logout } from "./logout/actions";
 
 import { createClient } from "@/utils/supabase/server";
 
@@ -11,11 +10,5 @@ export default async function PrivatePage() {
     redirect("/login");
   }
 
-  return (
-    <div>
-      <form action={logout}>
-        <button type="submit">Logout</button>
-      </form>
-    </div>
-  );
+  return <p>Hello {data.user.email}</p>;
 }
