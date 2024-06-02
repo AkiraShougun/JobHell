@@ -23,17 +23,22 @@ export default async function PrivatePage() {
       <AddJob />
       <pre>{datas.user.email}</pre>
       {jobs && jobs.length > 0 ? (
-        <ul>
+        <div className="grid gap-3 grid-flow-col ">
           {jobs.map((job) => (
-            <li key={job.id}>
-              <strong>Title:{job.title}</strong>
-              <Link href={job.link}>Link</Link>
-              <p>Company:{job.company}</p>
-              <p>Location:{job.location}</p>
-              <p>Website:{job.website}</p>
-            </li>
+            <div
+              key={job.id}
+              className="flex flex-col bg-[#181C3A] p-2 rounded-xl"
+            >
+              <strong className="main-text">Title:{job.title}</strong>
+              <p className="local-text">Company:{job.company}</p>
+              <p className="local-text">Location:{job.location}</p>
+              <p className="local-text">Website:{job.website}</p>
+              <Link href={job.link} className="main-text">
+                Link
+              </Link>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
         <p>No jobs found.</p>
       )}
