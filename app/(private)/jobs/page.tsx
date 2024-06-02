@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
-import { logout } from "../../logout/actions";
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 import AddJob from "@/app/components/addJob";
+import { deleteJob } from "@/app/actions/deleteJob";
 
 export default async function PrivatePage() {
   const supabase = createClient();
@@ -17,17 +17,14 @@ export default async function PrivatePage() {
 
   return (
     <div>
-      <form action={logout}>
-        <button type="submit">Logout</button>
-      </form>
       <AddJob />
       <pre>{datas.user.email}</pre>
       {jobs && jobs.length > 0 ? (
-        <div className="grid gap-3 grid-flow-col ">
+        <div className="grid gap-3 lg:grid-cols-5">
           {jobs.map((job) => (
             <div
               key={job.id}
-              className="flex flex-col bg-[#181C3A] p-2 rounded-xl"
+              className="flex flex-col bg-[#181C3A] p-2 rounded-xl max-h-72"
             >
               <strong className="main-text">Title:{job.title}</strong>
               <p className="local-text">Company:{job.company}</p>
@@ -36,6 +33,12 @@ export default async function PrivatePage() {
               <Link href={job.link} className="main-text">
                 Link
               </Link>
+              <form action={deleteJob}>
+                <input type="hidden" name="id" value={job.id}></input>
+                <button type="submit" className="main-text">
+                  Delete
+                </button>
+              </form>
             </div>
           ))}
         </div>
