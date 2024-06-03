@@ -3,6 +3,7 @@ import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 import AddJob from "@/app/components/addJob";
 import { deleteJob } from "@/app/actions/deleteJob";
+import { MdOutlineDelete } from "react-icons/md";
 
 export default async function PrivatePage() {
   const supabase = createClient();
@@ -20,25 +21,27 @@ export default async function PrivatePage() {
       <AddJob />
       <pre>{datas.user.email}</pre>
       {jobs && jobs.length > 0 ? (
-        <div className="grid gap-3 lg:grid-cols-5">
+        <div className="grid gap-5 lg:grid-cols-5">
           {jobs.map((job) => (
             <div
               key={job.id}
-              className="flex flex-col bg-[#181C3A] p-2 rounded-xl max-h-72"
+              className="flex flex-col rounded-xl max-h-72 p-2 gap-1 min-w-60 bg-[#181C3A]"
             >
-              <strong className="main-text">Title:{job.title}</strong>
-              <p className="local-text">Company:{job.company}</p>
-              <p className="local-text">Location:{job.location}</p>
-              <p className="local-text">Website:{job.website}</p>
-              <Link href={job.link} className="main-text">
-                Link
-              </Link>
-              <form action={deleteJob}>
-                <input type="hidden" name="id" value={job.id}></input>
-                <button type="submit" className="main-text">
-                  Delete
-                </button>
-              </form>
+              <strong className="text-white">{job.title}</strong>
+              <p className="text-gray-500">{job.company}</p>
+              <p className="text-gray-500">{job.location}</p>
+              <p className="text-gray-500">{job.website}</p>
+              <div className="flex justify-between">
+                <Link href={job.link} className="text-white">
+                  Link
+                </Link>
+                <form action={deleteJob}>
+                  <input type="hidden" name="id" value={job.id}></input>
+                  <button type="submit">
+                    <MdOutlineDelete className="text-red-700 size-7" />
+                  </button>
+                </form>
+              </div>
             </div>
           ))}
         </div>

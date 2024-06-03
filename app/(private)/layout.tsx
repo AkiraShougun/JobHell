@@ -8,10 +8,7 @@ export default function DashboardLayout({
   return (
     <main className="flex gap-2">
       <Navigation />
-      <section className="flex flex-col">
-        <div>Something here</div>
-        {children}
-      </section>
+      <section className="flex flex-col m-2">{children}</section>
     </main>
   );
 }

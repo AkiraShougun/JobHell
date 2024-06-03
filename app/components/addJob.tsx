@@ -40,35 +40,35 @@ const AddJob = () => {
                   placeholder="Title"
                   name="title"
                   required
-                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:placeholder-gray-500 dark:focus:ring-blue-900 dark:focus:border-blue-900"
+                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 "
                 ></input>
                 <input
                   type="text"
                   placeholder="Link"
                   name="link"
                   required
-                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:placeholder-gray-500 dark:focus:ring-blue-900 dark:focus:border-blue-900"
+                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 "
                 ></input>
                 <input
                   type="text"
                   placeholder="Company"
                   name="company"
                   required
-                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:placeholder-gray-500 dark:focus:ring-blue-900 dark:focus:border-blue-900"
+                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 "
                 ></input>
                 <input
                   type="text"
                   placeholder="Location"
                   name="location"
                   required
-                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:placeholder-gray-500 dark:focus:ring-blue-900 dark:focus:border-blue-900"
+                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 "
                 ></input>
                 <input
                   type="text"
                   placeholder="Website"
                   name="website"
                   required
-                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:placeholder-gray-500 dark:focus:ring-blue-900 dark:focus:border-blue-900"
+                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 "
                 ></input>
                 <div className="flex">
                   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
