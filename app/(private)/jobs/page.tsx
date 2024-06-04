@@ -19,7 +19,7 @@ export default async function PrivatePage() {
   return (
     <div>
       <AddJob />
-      <pre>{datas.user.email}</pre>
+      <pre className="text-white">{datas.user.email}</pre>
       {jobs && jobs.length > 0 ? (
         <div className="grid gap-5 lg:grid-cols-5">
           {jobs.map((job) => (
