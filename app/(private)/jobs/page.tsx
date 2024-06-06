@@ -4,6 +4,7 @@ import Link from "next/link";
 import AddJob from "@/app/components/addJob";
 import { deleteJob } from "@/app/actions/deleteJob";
 import { MdOutlineDelete } from "react-icons/md";
+import { Database } from "@/types/supabase";
 
 export default async function PrivatePage() {
   const supabase = createClient();
@@ -11,7 +12,7 @@ export default async function PrivatePage() {
   if (err || !datas?.user) {
     redirect("/login");
   }
-  const { data: jobs, error } = await supabase
+  const { data: jobs } = await supabase
     .from("jobs")
     .select("title, link,id,company,location,website")
     .eq("user_id", datas.user.id);
@@ -32,7 +33,7 @@ export default async function PrivatePage() {
               <p className="text-gray-500">{job.location}</p>
               <p className="text-gray-500">{job.website}</p>
               <div className="flex justify-between">
-                <Link href={job.link} className="text-white">
+                <Link href={`${job.link}`} className="text-white">
                   Link
                 </Link>
                 <form action={deleteJob}>
