@@ -4,7 +4,6 @@ import Link from "next/link";
 import AddJob from "@/app/components/addJob";
 import { deleteJob } from "@/app/actions/deleteJob";
 import { MdOutlineDelete } from "react-icons/md";
-import { Database } from "@/types/supabase";
 
 export default async function PrivatePage() {
   const supabase = createClient();
@@ -18,7 +17,7 @@ export default async function PrivatePage() {
     .eq("user_id", datas.user.id);
 
   return (
-    <div>
+    <div className=" overflow-x-hidden">
       <AddJob />
       <pre className="text-white">{datas.user.email}</pre>
       {jobs && jobs.length > 0 ? (
