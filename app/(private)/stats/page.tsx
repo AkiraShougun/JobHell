@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
+import ProgressBar from "@/app/components/progressBar";
 
 export default async function Statistics() {
   const supabase = createClient();
@@ -18,6 +19,7 @@ export default async function Statistics() {
     <div className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-4 rounded-lg">
       <span>Total applied jobs:</span>
       {count}
+      <ProgressBar progress={count} />
     </div>
   );
 }
