@@ -17,7 +17,7 @@ export default async function PrivatePage() {
     .eq("user_id", datas.user.id);
 
   return (
-    <div className=" overflow-x-hidden">
+    <div className=" overflow-x-hidden ">
       <AddJob />
       <pre className="text-white">{datas.user.email}</pre>
       {jobs && jobs.length > 0 ? (
@@ -46,7 +46,7 @@ export default async function PrivatePage() {
           ))}
         </div>
       ) : (
-        <p>No jobs found.</p>
+        <span className="text-white text-2xl">No jobs found.</span>
       )}
     </div>
   );

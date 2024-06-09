@@ -1,5 +1,7 @@
 "use client";
 
+import { Database } from "@/types/supabase";
+
 import {
   Chart as ChartJS,
   BarElement,
@@ -11,14 +13,41 @@ import {
 
 import { Bar } from "react-chartjs-2";
 
+interface BarChartProps {
+  jsondata: any;
+}
+
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
-const BarChart = () => {
+const BarChart: React.FC<BarChartProps> = ({ jsondata }) => {
+  const monthFrequencies: number[] = new Array(12).fill(0);
+
+  // Iterate through the data and count the frequencies
+  jsondata.forEach((entry: Database["public"]["Tables"]["jobs"]["Row"]) => {
+    const date = new Date(entry.inserted_at);
+    if (date.getFullYear() === 2024) {
+      const month = date.getMonth(); // getMonth() returns 0 for January, 1 for February, and so on
+      monthFrequencies[month]++;
+    }
+  });
   const data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
     datasets: [
       {
         label: "Jobs",
-        data: [6, 10, 4, 1, 6, 8, 22],
+        data: monthFrequencies,
         backgroundColor: "aqua",
         borderColor: "black",
         borderWidth: 1,

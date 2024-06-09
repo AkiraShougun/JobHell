@@ -16,11 +16,10 @@ export default async function Statistics() {
   if (error) {
     console.error("Error fetching", error);
   }
-  console.log(data);
   return (
     <main>
       <Count length={data?.length} />
-      <BarChart />
+      <BarChart jsondata={data} />
     </main>
   );
 }
