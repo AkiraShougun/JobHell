@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ProgressBarProps {
-  progress: number | null;
+  progress: number | undefined;
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {

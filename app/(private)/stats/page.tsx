@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
-import ProgressBar from "@/app/components/progressBar";
+import Count from "./count";
+import BarChart from "./barChart";
 
 export default async function Statistics() {
   const supabase = createClient();
@@ -8,18 +9,18 @@ export default async function Statistics() {
   if (err || !datas?.user) {
     redirect("/login");
   }
-  const { count, error } = await supabase
+  const { data, error } = await supabase
     .from("jobs")
-    .select("*", { count: "exact", head: true })
-    .eq("user_id", datas.user?.id);
+    .select("*")
+    .eq("user_id", datas.user.id);
   if (error) {
     console.error("Error fetching", error);
   }
+  console.log(data);
   return (
-    <div className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-4 rounded-lg">
-      <span>Total applied jobs:</span>
-      {count}
-      <ProgressBar progress={count} />
-    </div>
+    <main>
+      <Count length={data?.length} />
+      <BarChart />
+    </main>
   );
 }
