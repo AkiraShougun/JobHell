@@ -3,11 +3,11 @@ import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 
 interface JobData {
-  company?: string | null;
-  title?: string | null;
-  link?: string | null;
-  location?: string | null;
-  website?: string | null;
+  company: string | null;
+  title: string | null;
+  link: string | null;
+  location: string | null;
+  website: string | null;
   user_id: string;
 }
 
