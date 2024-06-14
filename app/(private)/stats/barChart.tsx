@@ -13,16 +13,19 @@ import {
 
 import { Bar } from "react-chartjs-2";
 
+export type Jobs = Database["public"]["Tables"]["jobs"]["Row"];
+
 interface BarChartProps {
-  jsondata: any;
+  jsondata: Jobs[] | null; //fix later
 }
+//fix forEach types damn you
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 const BarChart: React.FC<BarChartProps> = ({ jsondata }) => {
   const monthFrequencies: number[] = new Array(12).fill(0);
 
   // Iterate through the data and count the frequencies
-  jsondata.forEach((entry: Database["public"]["Tables"]["jobs"]["Row"]) => {
+  jsondata?.forEach((entry) => {
     const date = new Date(entry.inserted_at);
     if (date.getFullYear() === 2024) {
       const month = date.getMonth(); // getMonth() returns 0 for January, 1 for February, and so on
@@ -54,6 +57,7 @@ const BarChart: React.FC<BarChartProps> = ({ jsondata }) => {
       },
     ],
   };
+  console.log(jsondata);
   return (
     <div className="bg-[#181C3A] rounded-lg">
       <Bar data={data}></Bar>
