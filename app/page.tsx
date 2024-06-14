@@ -29,7 +29,7 @@ export default async function Main() {
             Welcome to JobHell
           </h1>
           <p className="text-white mt-2">A website to track your jobs.</p>
-          <p className="text-white mt-2">
+          <p className="text-white mt-3">
             You are logged in! Get started from there
           </p>
           <Link href="/jobs" className="bg-sky-400 rounded-lg px-10">
