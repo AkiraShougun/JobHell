@@ -6,7 +6,7 @@ interface countProp {
 
 const Count: React.FC<countProp> = ({ length }) => {
   return (
-    <div className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-4 rounded-lg">
+    <div className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-4 rounded-lg w-72">
       <span>Total applied jobs:{length}/500</span>
       <ProgressBar progress={length} />
     </div>

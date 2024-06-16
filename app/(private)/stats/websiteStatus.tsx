@@ -14,7 +14,7 @@ const WebsiteStatus: React.FC<WebsiteStatusProps> = ({ jsondata }) => {
     }
   });
   return (
-    <div className="bg-[#181C3A] rounded-lg p-2">
+    <div className="bg-[#181C3A] rounded-lg p-2 h-32 overflow-y-scroll mt-2">
       {Object.keys(websiteFreq).map((web, index) => (
         <div key={index} className="text-white block">
           <span>{web}</span>

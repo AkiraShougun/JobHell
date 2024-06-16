@@ -3,6 +3,7 @@ import { createClient } from "@/utils/supabase/server";
 import Count from "./count";
 import BarChart from "./barChart";
 import WebsiteStatus from "./websiteStatus";
+import PieChart from "./pieChart";
 
 export default async function Statistics() {
   const supabase = createClient();
@@ -18,10 +19,11 @@ export default async function Statistics() {
     console.error("Error fetching", error);
   }
   return (
-    <main className="grid gap-5">
+    <main className="p-5">
       <Count length={data?.length} />
       <BarChart jsondata={data} />
       <WebsiteStatus jsondata={data} />
+      <PieChart length={data?.length} />
     </main>
   );
 }

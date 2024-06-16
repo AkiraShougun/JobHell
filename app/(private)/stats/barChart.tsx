@@ -57,9 +57,8 @@ const BarChart: React.FC<BarChartProps> = ({ jsondata }) => {
       },
     ],
   };
-  console.log(jsondata);
   return (
-    <div className="bg-[#181C3A] rounded-lg">
+    <div className="bg-[#181C3A] rounded-lg mt-2">
       <Bar data={data}></Bar>
     </div>
   );
