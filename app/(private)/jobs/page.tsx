@@ -14,7 +14,7 @@ export default async function PrivatePage() {
   }
   const { data: jobs } = await supabase
     .from("jobs")
-    .select("title, link,id,company,location,website")
+    .select("*")
     .eq("user_id", datas.user.id);
 
   return (
