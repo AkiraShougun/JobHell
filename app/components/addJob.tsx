@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { addJob } from "../actions/addJob";
+import { Jobs } from "../(private)/stats/barChart";
 
 const AddJob = () => {
   const [openModal, setOpenModal] = useState(false);

@@ -4,6 +4,7 @@ import Link from "next/link";
 import AddJob from "@/app/components/addJob";
 import { deleteJob } from "@/app/actions/deleteJob";
 import { MdOutlineDelete } from "react-icons/md";
+import EditJob from "@/app/components/editJob";
 
 export default async function PrivatePage() {
   const supabase = createClient();
@@ -35,12 +36,15 @@ export default async function PrivatePage() {
                 <Link href={`${job.link}`} className="text-white">
                   Link
                 </Link>
-                <form action={deleteJob}>
-                  <input type="hidden" name="id" value={job.id}></input>
-                  <button type="submit">
-                    <MdOutlineDelete className="text-red-700 size-7" />
-                  </button>
-                </form>
+                <div className="flex">
+                  <EditJob jobData={job} />
+                  <form action={deleteJob}>
+                    <input type="hidden" name="id" value={job.id}></input>
+                    <button type="submit">
+                      <MdOutlineDelete className="text-red-700 size-7" />
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           ))}
