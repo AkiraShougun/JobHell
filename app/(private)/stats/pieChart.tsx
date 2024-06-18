@@ -4,18 +4,18 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 
 interface PieChartProps {
-  length: number | undefined; //fix later
+  length: number | undefined;
 }
-//fix forEach types damn you
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 const PieChart: React.FC<PieChartProps> = ({ length }) => {
+  const remainder = 500 - (length || 0);
   const data = {
     labels: ["Current", "Available Space"],
     datasets: [
       {
         label: "# of Votes",
-        data: [length, 500],
+        data: [length, remainder],
         backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
         borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
         borderWidth: 1,
