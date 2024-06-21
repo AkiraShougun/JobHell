@@ -7,3 +7,4 @@ A web application to keep track of your job applications.
 - [x] D3 integration
 - [x] Authentication
 - [x] Main Page
+- [x] Navigation
